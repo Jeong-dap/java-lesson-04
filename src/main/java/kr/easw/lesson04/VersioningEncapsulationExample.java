@@ -44,25 +44,21 @@ public class VersioningEncapsulationExample {
     static class TestV1 implements TestInterface {
         @Override
         public String doAction(String type) {
-            throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+            return type; // 입력된 문자열을 그대로 반환
         }
     }
 
-
-    // Split by space
     static class TestV2 implements TestInterface {
         @Override
         public String doAction(String type) {
-            throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+            return type.replace('!', '?'); // 느낌표를 물음표로 바꾸어 반환
         }
     }
 
-
-    // Split by space, and concat
     static class TestV3 implements TestInterface {
         @Override
         public String doAction(String type) {
-            throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+            return type.replace('!', '?').replace(" ", ""); // 느낌표를 물음표로 바꾸고, 공백을 제거하여 반환
         }
     }
 }

@@ -58,8 +58,26 @@ public class ModularExample {
      * 상속하여 구현한 Vehicle 객체를 반환해야 합니다.
      */
     public static Vehicle getVehicle() {
-        throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+        return new CustomVehicle();
     }
+
+    static class CustomVehicle extends Vehicle {
+        @Override
+        public Energy getEnergy() {
+            return new HumanEnergy(); // 예시로 HumanEnergy를 선택합니다.
+        }
+
+        @Override
+        public VehicleType getType() {
+            return new Bike(); // 예시로 Bike를 선택합니다.
+        }
+
+        @Override
+        public void onTick(int currentTick, int fuel) {
+            // 특별한 동작을 수행하지 않으므로 메서드 내용은 비워둡니다.
+        }
+    }
+
 
     // 해당 클래스를 상속하여 구현하여야 합니다.
     static abstract class Vehicle {
